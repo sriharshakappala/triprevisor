@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet, ScrollView, Text, ImageBackground } from 'react-native';
+import { Dimensions, Image, StyleSheet, ScrollView, Text, ImageBackground, TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const london = require('../images/london.jpg');
@@ -21,20 +21,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const imageAndText = (imageSource, text) => (
-  <ImageBackground source={imageSource} style={styles.image}>
-    <Text style={styles.title}>
-      {text}
-    </Text>
-  </ImageBackground>
+const imageAndText = (imageSource, text, navigation) => (
+  <TouchableOpacity onPress={() => navigation.navigate('City', { name: text })}>
+    <ImageBackground source={imageSource} style={styles.image}>
+      <Text style={styles.title}>
+        {text}
+      </Text>
+    </ImageBackground>
+  </TouchableOpacity>
 );
 
-const CityList = () => (
+const CityList = ({ navigation }) => (
   <ScrollView>
-    {imageAndText(newYork, 'New York')}
-    {imageAndText(london, 'London')}
-    {imageAndText(sanFran, 'San Francisco')}
-    {imageAndText(melbourne, 'Melbourne')}
+    {imageAndText(newYork, 'New York', navigation)}
+    {imageAndText(london, 'London', navigation)}
+    {imageAndText(sanFran, 'San Francisco', navigation)}
+    {imageAndText(melbourne, 'Melbourne', navigation)}
   </ScrollView>
 );
 
