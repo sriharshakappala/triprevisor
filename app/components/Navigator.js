@@ -10,7 +10,12 @@ const Navigator = StackNavigator({
       header: null,
     }
   },
-  City: { screen: CityDetails },
+  City: {
+    screen: CityDetails,
+    navigationOptions: ({navigation}) => ({
+      title: navigation.state.params.name
+    }),
+  },
 }, {
   initialRouteName: 'Home' },
 );
