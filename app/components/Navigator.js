@@ -4,7 +4,12 @@ import CityDetails from './CityDetails';
 
 
 const Navigator = StackNavigator({
-  Home: { screen: HomeScreen },
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
   City: { screen: CityDetails },
 }, {
   initialRouteName: 'Home' },
