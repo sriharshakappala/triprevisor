@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
 
-const CityDetails = props => (
+const CityDetails = ({ navigation }) => (
   <ScrollView>
-    <Text>Hello!</Text>
+    <Text>Hello, {navigation.state.params.name}!!</Text>
   </ScrollView>
 );
 
