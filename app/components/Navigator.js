@@ -17,7 +17,8 @@ const Navigator = StackNavigator({
     }),
   },
 }, {
-  initialRouteName: 'Home' },
-);
+  initialRouteName: 'Home',
+  headerMode: 'screen',
+});
 
 export default Navigator;
